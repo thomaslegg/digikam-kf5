@@ -1,5 +1,5 @@
---- CMakeLists.txt.orig	2016-08-08 17:19:24 UTC
-+++ CMakeLists.txt
+--- core/CMakeLists.txt.orig	2016-08-08 17:19:24 UTC
++++ core/CMakeLists.txt
 @@ -311,6 +311,11 @@ endif()
  
  find_package(Doxygen)

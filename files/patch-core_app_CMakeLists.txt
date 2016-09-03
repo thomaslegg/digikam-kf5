@@ -1,5 +1,5 @@
---- app/CMakeLists.txt.orig	2016-08-28 06:21:30 UTC
-+++ app/CMakeLists.txt
+--- core/app/CMakeLists.txt.orig	2016-09-02 04:44:38 UTC
++++ core/app/CMakeLists.txt
 @@ -157,6 +157,7 @@ target_link_libraries(digikamcore
  
                        libdng

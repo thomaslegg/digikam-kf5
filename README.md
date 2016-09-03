@@ -1,9 +1,5 @@
 This is a FreeBSD ports skeleton for digikam-kf5. It's designed to be built against the plasma5 branch of the area51 repository.
 
-A few of the patches added in the files directory handle c++11 compiler errors as default compiler on FreeBSD 11 is c++11. I should probably add a USES compiler switch to mandate c++11.
+The second revision brings docs and nls support into the digikam-kf5 port, which eliminates the digikam-kf5-doc and digikam-kf5-l10n ports. It also updates the other options and brings in a new option for multimedia playback from digikam. This has been tested and works with qt5.6.1-multimedia. For the moment the ghoto2 option has been removed due to conflicts in the library requirements in digikam's CMake. I'm going to test some patches and camera detection. If all goes well, gphoto2 will reappear in a future update.
 
-I doubt I've added all the necessary USES for kde5 or qt5.
-
-Many libraries which digikam considers optional, like LQR, are listed as required here since they were listed as required in the digikam-kde4 port. Currently I don't have multimedia enabled and the gphoto2 use is disabled due to gphoto2 requiring usb1.
-
-
+This second revision also updates the qt5 and kde:5 requirements as per digikam 5.1.0's DEPENDENCIES file, so it might just build from a bare poudriere using the area51 kf5 branch (except for the kmail contacts integration as 16.08 kde contacts requires qt5-webengine which is an incomplete port).
