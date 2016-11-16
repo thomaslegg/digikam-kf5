@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	digikam
-PORTVERSION=	5.2.0
+PORTVERSION=	5.3.0
 CATEGORIES=	graphics kde
 
 MAINTAINER=	kde@FreeBSD.org
