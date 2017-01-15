@@ -8,19 +8,19 @@ CATEGORIES=	graphics kde
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE digital photo management application
 
-DIGIKAM_VER=    5.1.0
+DIGIKAM_VER=    5.3.0
 MASTER_SITES=   KDE/stable/digikam
 LICENSE?=       GPLv2
 
 BUILD_DEPENDS=	${LOCALBASE}/include/eigen3/Eigen/Eigen:math/eigen3
 LIB_DEPENDS=	libtiff.so:graphics/tiff \
 		libpng.so:graphics/png \
-		libopencv_core.so:graphics/opencv \
+		libopencv_core.so:graphics/opencv2 \
 		liblcms.so:graphics/lcms \
 		libjasper.so:graphics/jasper \
 		liblqr-1.so:graphics/liblqr-1 \
 		liblensfun.so:graphics/lensfun \
-		libKF5KFace.so:graphics/libkface \
+		libKF5KFace.so:graphics/libkface-kf5 \
 		libpgf.so:graphics/libpgf \
 		libboost_graph.so:devel/boost-libs
 
