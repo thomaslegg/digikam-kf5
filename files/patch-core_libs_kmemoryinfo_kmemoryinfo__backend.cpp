@@ -1,4 +1,4 @@
---- core/libs/kmemoryinfo/kmemoryinfo_backend.cpp.orig	2016-08-08 17:19:25 UTC
+--- core/libs/kmemoryinfo/kmemoryinfo_backend.cpp.orig	2016-11-06 10:43:01 UTC
 +++ core/libs/kmemoryinfo/kmemoryinfo_backend.cpp
 @@ -117,7 +117,7 @@ kvm_t* sg_get_kvm()
          return kvmd;

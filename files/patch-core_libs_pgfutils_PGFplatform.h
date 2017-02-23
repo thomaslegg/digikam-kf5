@@ -1,4 +1,4 @@
---- core/libs/pgfutils/PGFplatform.h.orig	2016-08-08 17:19:25 UTC
+--- core/libs/pgfutils/PGFplatform.h.orig	2016-11-06 10:43:01 UTC
 +++ core/libs/pgfutils/PGFplatform.h
 @@ -485,7 +485,7 @@ __inline int MulDiv(int nNumber, int nNu
  #define FSFromStart			SEEK_SET

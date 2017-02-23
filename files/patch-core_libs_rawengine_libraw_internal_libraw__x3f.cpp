@@ -1,6 +1,6 @@
---- core/libs/rawengine/libraw/internal/libraw_x3f.cpp.orig	2016-08-08 17:19:25 UTC
+--- core/libs/rawengine/libraw/internal/libraw_x3f.cpp.orig	2016-11-06 10:43:01 UTC
 +++ core/libs/rawengine/libraw/internal/libraw_x3f.cpp
-@@ -1239,7 +1239,7 @@ static void huffman_decode_row(x3f_info_
+@@ -1392,7 +1392,7 @@ static void huffman_decode_row(x3f_info_
                                 x3f_directory_entry_t *DE,
                                 int bits,
                                 int row,

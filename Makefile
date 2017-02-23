@@ -4,52 +4,48 @@
 PORTNAME=	digikam
 PORTVERSION=	5.3.0
 CATEGORIES=	graphics kde
+MASTER_SITES=   KDE/stable/digikam
 
 MAINTAINER=	kde@FreeBSD.org
 COMMENT=	KDE digital photo management application
 
-DIGIKAM_VER=    5.3.0
-MASTER_SITES=   KDE/stable/digikam
-LICENSE?=       GPLv2
+LICENSE=       GPLv2
 
-BUILD_DEPENDS=	${LOCALBASE}/include/eigen3/Eigen/Eigen:math/eigen3
-LIB_DEPENDS=	libtiff.so:graphics/tiff \
-		libpng.so:graphics/png \
-		libopencv_core.so:graphics/opencv2 \
-		liblcms.so:graphics/lcms \
-		libjasper.so:graphics/jasper \
-		liblqr-1.so:graphics/liblqr-1 \
-		liblensfun.so:graphics/lensfun \
-		libKF5KFace.so:graphics/libkface-kf5 \
-		libpgf.so:graphics/libpgf \
-		libboost_graph.so:devel/boost-libs
+BUILD_DEPENDS=	${LOCALBASE}/include/eigen3/Eigen/Eigen:math/eigen3 \
+		${LOCALBASE}/bin/msgfmt:devel/gettext-tools 
+LIB_DEPENDS=	libboost_graph.so:devel/boost-libs \
+				libjasper.so:graphics/jasper \
+				libKF5KFace.so:graphics/libkface-kf5 \
+				liblcms2.so:graphics/lcms2 \
+				liblensfun.so:graphics/lensfun \
+				liblqr-1.so:graphics/liblqr-1 \
+				libopencv_core.so:graphics/opencv2 \
+				libpgf.so:graphics/libpgf \
+				libpng.so:graphics/png \
+				libtiff.so:graphics/tiff
 
-USES+=		cmake pkgconfig shebangfix kde:5 compiler:c++11-lib tar:xz
-USE_KDE=	ecm solid xmlgui i18n config service windowsystem kio \
-		notifications notifyconfig archive coreaddons \
-		threadweaver
-USE_QT5+=	buildtools_build core gui qmake_build widgets xml \
-		concurrent sql-sqlite3_run printsupport x11extras \
-		opengl
+USES=		cmake compiler:c++11-lib kde:5 pkgconfig shebangfix  tar:xz
+USE_KDE=	akonadicalendar akonadi-contacts archive config coreaddons  \
+		ecm filemetadata5 kio  notifyconfig notifications \
+		solid service threadweaver windowsystem xmlgui
+USE_QT5=	buildtools_build concurrent  core gui opengl printsupport \
+		qmake_build sql-sqlite3_run widgets xml x11extras 
 USE_LDCONFIG=	yes
-CMAKE_ARGS+=	-DDIGIKAMSC_COMPILE_KIPIPLUGINS:BOOL=OFF
-
-WRKSRC=		${WRKDIR}/${DISTNAME}
+CMAKE_ARGS=	-DDIGIKAMSC_COMPILE_KIPIPLUGINS:BOOL=OFF
 SHEBANG_FILES=	core/data/scripts/digitaglinktree/digitaglinktree
 
-OPTIONS_DEFINE=		DOCS NLS PIMLIBS MYSQL MULTIMEDIA GEOLOCATION GPHOTO2
+OPTIONS_DEFINE=		DOCS GEOLOCATION GPHOTO2 MULTIMEDIA MYSQL NLS PIMLIBS  
 OPTIONS_DEFAULT=	DOCS GEOLOCATION
-NO_OPTIONS_SORT=	yes
 OPTIONS_SUB=		yes # MYSQL
 
 DOCS_DESC=		Digikam documentation
-USES+=		gettext
-USE_KDE+=	doctools
+DOCS_USES=	KDE=doctools
 DOCS_CMAKE_ON=	-DDIGIKAMSC_COMPILE_DOC:BOOL=ON
-DOCS_CMAKE_OFF=	-DDIGIKAMSC_COMPILE_DOC:BOOL=OFF
+DOCS_CMAKE_OFF= -DDIGIKAMSC_COMPILE_DOC:BOOL=OFF
 
 NLS_DESC=	Digikam i18n translations
-NLS_USES=		gettext 
+NLS_USES=	gettext 
+NLS_USES+=	KDE=i18n
 NLS_CMAKE_ON=	-DDIGIKAMSC_COMPILE_PO:BOOL=ON
 NLS_CMAKE_OFF=	-DDIGIKAMSC_COMPILE_PO:BOOL=OFF
 
@@ -71,11 +67,11 @@ GPHOTO2_DESC=		Gphoto2 camera support
 GPHOTO2_LIB_DEPENDS=	libgphoto2.so:graphics/libgphoto2
 
 GEOLOCATION_DESC=	Geolocation support
-GEOLOCATION_LIB_DEPENDS=	libKF5KGeoMap.so:astro/libkgeomap
-GEOLOCATION_KDE_USE=	bookmarks
+GEOLOCATION_LIB_DEPENDS=	libKF5KGeoMap.so:astro/libkgeomap-kf5
+GEOLOCATION_USE=	KDE=bookmarks
 
 MULTIMEDIA_DESC=	Multimedia support (experimental)
-USE_QT5+=		multimedia
+MULTIMEDIA_USE=		QT5=multimedia
 MULTIMEDIA_CMAKE_ON=	-DENABLE_MEDIAPLAYER:BOOL=ON
 MULTIMEDIA_CMAKE_OFF=	-DENABLE_MEDIAPLAYER:BOOL=OFF
 
